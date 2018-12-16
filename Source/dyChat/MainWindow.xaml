@@ -9,7 +9,7 @@
         AllowsTransparency="True"
         x:Name="AppWindow"
         WindowStartupLocation="CenterScreen"
-        Icon="Images/Logo/logo-small.png"
+        Icon="Images/Logo/dyLogo_dark.png"
         MinWidth="{Binding WindowMinimumWidth}"
         MinHeight="{Binding WindowMinimumHeight}"
         Title="Welcome, Friend" Height="600" Width="900">
@@ -61,12 +61,17 @@
 
                                         <!--Icon-->
                                         <Button Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}">
-                                            <Image Source="/Images/Logo/logo-small.png"/>
+                                            <Image Source="/Images/Logo/dyLogo_light.png"/>
                                         </Button>
 
                                         <!--Title Text-->
-                                        <Viewbox Grid.Column="1" Margin="0">
-                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue='Welcome, Friend'}" />
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
+                                            <StackPanel>
+                                                <TextBlock FontFamily="{StaticResource LatoBold}" FontSize="{StaticResource FontSizeRegular}" Margin="0,0,0,-5">
+                                                <Run Text="d" Foreground="{StaticResource ForegroundDarkBrush}" /><Run Text="y" Foreground="{StaticResource ForegroundDarkBrush}" /><Run Text="C" Foreground="{StaticResource WordOrangeBrush}" /><Run Text="h" Foreground="{StaticResource WordBlueBrush}" /><Run Text="a" Foreground="{StaticResource WordRedBrush}" /><Run Text="t" Foreground="{StaticResource WordGreenBrush}" />
+                                                </TextBlock>
+                                                <TextBlock Text="by dyOnic" Foreground="{StaticResource ForegroundDarkBrush}" TextAlignment="Center"></TextBlock>
+                                            </StackPanel>
                                         </Viewbox>
 
                                         <!--Window Buttons-->
@@ -76,10 +81,10 @@
                                             <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Content="X"/>
                                         </StackPanel>
                                     </Grid>
-                                 
+
                                     <!--Page Content-->
-                                    <Border Grid.Row="1" Padding="{Binding InnerContentPaddingThickness, FallbackValue=6}">
-                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    <Border Grid.Row="1" Padding="{Binding InnerConentPaddingThickness, FallbackValue=6}" Background="{StaticResource WordBlueBrush}">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
                                 </Grid>
                             </Grid>
@@ -97,7 +102,7 @@
             GlassFrameThickness="0"
             />
     </WindowChrome.WindowChrome>
-    <Grid>
-
+    <Grid Background="{StaticResource ForegroundLightBrush}">
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />
     </Grid>
 </Window>

@@ -1,10 +1,28 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
+using System.Windows.Media;
 
 namespace dyChat
 {
+    public enum WindowDockPosition
+    {
+        /// <summary>
+        /// Not docked
+        /// </summary>
+        Undocked,
+        /// <summary>
+        /// Docked to the left of the screen
+        /// </summary>
+        Left,
+        /// <summary>
+        /// Docked to the right of the screen
+        /// </summary>
+        Right,
+    }
+
     /// <summary>
     /// Fixes the issue with Windows of Style <see cref="WindowStyle.None"/> covering the taskbar
     /// </summary>
@@ -17,6 +35,10 @@ namespace dyChat
         /// </summary>
         private Window mWindow;
 
+        /// <summary>
+        /// The last known dock position
+        /// </summary>
+        private WindowDockPosition _lastDock = WindowDockPosition.Undocked;
         #endregion
 
         #region Dll Imports

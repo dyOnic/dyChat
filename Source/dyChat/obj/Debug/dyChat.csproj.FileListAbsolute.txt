@@ -48,3 +48,5 @@ C:\Users\AcDustin\Documents\GitHub\dyChat\Source\dyChat\obj\Debug\dyChat.csproj.
 C:\Users\AcDustin\Documents\GitHub\dyChat\Source\dyChat\obj\Debug\dyChat.csproj.CopyComplete
 C:\Users\AcDustin\Documents\GitHub\dyChat\Source\dyChat\obj\Debug\dyChat.exe
 C:\Users\AcDustin\Documents\GitHub\dyChat\Source\dyChat\obj\Debug\dyChat.pdb
+C:\Users\AcDustin\Documents\GitHub\dyChat\Source\dyChat\obj\Debug\Pages\LoginPage.g.cs
+C:\Users\AcDustin\Documents\GitHub\dyChat\Source\dyChat\obj\Debug\Pages\LoginPage.baml

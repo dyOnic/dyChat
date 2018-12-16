@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Input;
+
 namespace dyChat
 {
     /// <summary>
@@ -22,6 +25,8 @@ namespace dyChat
         /// The radius of the edges of the window
         /// </summary>
         private int _windowRadius = 10;
+
+        private WindowDockPosition _dockPosition = WindowDockPosition.Undocked;
         #endregion
 
         #region Public Properties
@@ -37,18 +42,24 @@ namespace dyChat
         public double WindowMinimumHeight { get; set; } = 400;
 
         /// <summary>
+        /// True if the window should be borderless because it is docked or maximized
+        /// </summary>
+        public bool Borderless { get { return (_window.WindowState == WindowState.Maximized || _dockPosition != WindowDockPosition.Undocked); } }
+
+        /// <summary>
         /// The size of the resize border around the window
         /// </summary>
-        public int ResizeBorder { get; set; } = 6;
+        public int ResizeBorder { get { return Borderless ? 0 : 6; } }
 
         /// <summary>
         /// The size of the resize border around the window, taking into account the outer margin
         /// </summary>
         public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBorder + OuterMarginSize); } }
+
         /// <summary>
         /// The padding of the inner content of the main window
         /// </summary>
-        public Thickness InnerContentPaddingThickness { get { return new Thickness(ResizeBorder); } }
+        public Thickness InnerContentPaddingThickness { get; set; } = new Thickness(0);
 
         /// <summary>
         /// The margin around the window to allow for a drop shadow
@@ -97,6 +108,11 @@ namespace dyChat
         public int TitleHeight { get; set; } = 42;
 
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
+
+        /// <summary>
+        /// The current page of the application
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 
