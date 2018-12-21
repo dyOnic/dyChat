@@ -6,7 +6,7 @@ namespace dyChat
     /// <summary>
     /// Interaktionslogik für LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : BasePage
     {
         public LoginPage()
         {
